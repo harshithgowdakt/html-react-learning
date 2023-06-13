@@ -12,6 +12,13 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
+        const dishes = [
+            "dosa",
+            "idly",
+            "rice",
+            "sambar"
+        ]
+
         function Header(props) {
             return (
                 <header>
@@ -21,10 +28,12 @@
             )
         }
 
-        function Main(p) {
+        function Main(props) {
             return (
                 <section>
-                    <p>we serve the most {p.adjective} food around</p>
+                    <ul>
+                        {props.dishes.map(dish => (<li>{dish}</li>))}
+                    </ul>
                 </section>
             )
         }
@@ -41,7 +50,7 @@
             return (
                 <div>
                     <Header name="Harshith" />
-                    <Main adjective="amazing" />
+                    <Main adjective="amazing" dishes={dishes} />
                     <Footer year={new Date().getFullYear()} />
                 </div>
             )
