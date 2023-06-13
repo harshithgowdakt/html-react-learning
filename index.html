@@ -12,29 +12,38 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-        function Header() {
+        function Header(props) {
             return (
                 <header>
-                    <h1> Eve's Kitchen</h1>
+                    <h1> {props.name}'s Kitchen</h1>
                 </header>
 
             )
         }
 
-        function Main() {
+        function Main(p) {
             return (
                 <section>
-                    <p>we serve the most delicious food around</p>
+                    <p>we serve the most {p.adjective} food around</p>
                 </section>
             )
         }
 
-        function App(){
+        function Footer(props) {
+            return (
+                <footer>
+                    <p> CopyRight {props.year}</p>
+                </footer>
+            )
+        }
+
+        function App() {
             return (
                 <div>
-                    <Header />
-                    <Main />
-                    </div>
+                    <Header name="Harshith" />
+                    <Main adjective="amazing" />
+                    <Footer year={new Date().getFullYear()} />
+                </div>
             )
         }
 
@@ -45,4 +54,5 @@
         )
     </script>
 </body>
+
 </html>
