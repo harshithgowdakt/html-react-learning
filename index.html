@@ -33,6 +33,7 @@
         function Main(props) {
             return (
                 <section>
+                    <img height={200} src="https://images.pexels.com/photos/1126728/pexels-photo-1126728.jpeg?auto=compress&cs=tinysrgb&w=400" alt="restaurants" />
                     <ul>
                         {props.dishes.map((dish, i) => (<li key={dish.id}>{dish.title}</li>))}
                     </ul>
@@ -50,11 +51,11 @@
 
         function App() {
             return (
-                <div>
+                <React.Fragment>
                     <Header name="Harshith" />
                     <Main adjective="amazing" dishes={dishObjects} />
                     <Footer year={new Date().getFullYear()} />
-                </div>
+                </React.Fragment>
             )
         }
 
