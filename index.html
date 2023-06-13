@@ -19,6 +19,8 @@
             "sambar"
         ]
 
+        const dishObjects = dishes.map((dish, i) => ({ id: i, title: dish }))
+
         function Header(props) {
             return (
                 <header>
@@ -32,7 +34,7 @@
             return (
                 <section>
                     <ul>
-                        {props.dishes.map(dish => (<li>{dish}</li>))}
+                        {props.dishes.map((dish, i) => (<li key={dish.id}>{dish.title}</li>))}
                     </ul>
                 </section>
             )
@@ -50,7 +52,7 @@
             return (
                 <div>
                     <Header name="Harshith" />
-                    <Main adjective="amazing" dishes={dishes} />
+                    <Main adjective="amazing" dishes={dishObjects} />
                     <Footer year={new Date().getFullYear()} />
                 </div>
             )
