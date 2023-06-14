@@ -1,13 +1,14 @@
 import './App.css'
+import { useState } from "react"
+function App() {
+  const [emotion, setEmotion] = useState("happy");
 
-function App({ library }) {
   return (
     <div className="App">
-      <h1>
-        Hello from {library}
-      </h1>
+      <h1>Current emotion is {emotion}</h1>
+      <button onClick={()=>setEmotion("sad")}> Sad</button>
     </div>
   );
-}
+} 
 
 export default App;
