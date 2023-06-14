@@ -1,43 +1,22 @@
 import './App.css'
-import { useState } from "react";
-
-function useInput(initValue) {
-  const [value, setValue] = useState(initValue);
-  return [
-    {
-      value: value,
-      onChange: (e) => setValue(e.target.value)
-    },
-    () => setValue(initValue)
-  ]
-}
+import { useState, useEffect } from "react";
 
 function App() {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    fetch('https://api.github.com/users/harshithgowdakt')
+      .then(res => res.json())
+      .then(setData)
+  }, [])
 
-
-  const [titleprops, resetTitle] = useInput("");
-  const [colorprops, resetColor] = useInput("#000000");
-
-
-  const submit = (e) => {
-    e.preventDefault();
-    alert(`${titleprops.value}, ${colorprops.value}`);
-    resetColor()
-    resetTitle()
+  if (data) {
+    return (
+      <pre> {JSON.stringify(data, null, 2)}</pre>
+    )
   }
-
   return (
     <div className="App">
-      <form onSubmit={submit}>
-        <input type="text"
-          {...titleprops}
-          placeholder='color title.......' >
-        </input>
-        <input type='color'
-          {...colorprops} >
-        </input>
-        <button>Add</button>
-      </form>
+      <h1>Data</h1>
     </div>
   );
 }
