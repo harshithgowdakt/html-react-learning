@@ -1,40 +1,31 @@
 import './App.css'
-import { useState, useEffect } from "react";
 
-
-const tahoe_peaks = [
-  { name: "Freel", elevation: 10891 },
-  { name: "Monument", elevation: 10067 },
-  { name: "Pyramid", elevation: 9983 },
-  { name: "Tallac", elevation: 9735 }
-]
-
-function List({ data, renderItem, renderEmpty }) {
-  return !data.length ?
-    (renderEmpty)
-    : (
-      <ul>
-        {data.map((item) => (
-          <li key={item.name}>
-            {renderItem(item)}
-          </li>
-        ))}
-      </ul>
-    );
-}
-
-function App() {
+export function Home() {
   return (
-    <List
-      data={tahoe_peaks}
-      renderEmpty={<p> This is empty</p>}
-      renderItem={(item) => (
-        <>
-          {item.name} - {item.elevation}
-        </>
-      )}
-    ></List>
+    <div>
+      <h1>my website</h1>
+    </div>
   )
 }
 
-export default App;
+export function About() {
+  return (
+    <div>
+      <h1>about us</h1>
+    </div>
+  )
+}
+
+export function Contact() {
+  return (
+    <div>
+      <h1> contact us</h1>
+    </div>
+  )
+}
+
+export function App() {
+  return (
+    <h1>App</h1>
+  )
+}
