@@ -1,0 +1,6 @@
+p {
+    font: italic;
+    color: blue;
+    font-weight: bold;
+    text-underline-position: below;
+}
