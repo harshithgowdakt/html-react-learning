@@ -1,6 +1,9 @@
-p {
-    font: italic;
-    color: blue;
-    font-weight: bold;
-    text-underline-position: below;
+.box {
+  height: 100px;
+  width: 100px;
+  background-color: gold;
+  padding: 10px;
+  border: 20px solid red;
+  box-sizing: border-box;
+  overflow: auto;
 }
